@@ -10,7 +10,7 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-blue.svg)](https://flutter.dev)
 [![Arduino](https://img.shields.io/badge/Arduino-Nano-teal.svg)](https://arduino.cc)
 [![Gemma](https://img.shields.io/badge/Gemma_4-E4B-orange.svg)](https://ai.google.dev/gemma)
-[![Stars](https://img.shields.io/github/stars/yourusername/fluttermind?style=social)](https://github.com/yourusername/fluttermind)
+[![Stars](https://img.shields.io/github/stars/adhnan-e/fluttermind?style=social)](https://github.com/adhnan-e/fluttermind)
 
 ---
 
@@ -217,7 +217,7 @@ fluttermind/
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/fluttermind.git
+git clone https://github.com/adhnan-e/fluttermind.git
 cd fluttermind
 
 # Open in Arduino IDE
@@ -346,8 +346,8 @@ Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) before opening a pull reques
 ## Community
 
 - 💬 **Discord** — [discord.gg/fluttermind](#) _(coming soon)_
-- 🐛 **Issues** — [GitHub Issues](https://github.com/yourusername/fluttermind/issues)
-- 💡 **Ideas** — [GitHub Discussions](https://github.com/yourusername/fluttermind/discussions)
+- 🐛 **Issues** — [GitHub Issues](https://github.com/adhnan-e/fluttermind/issues)
+- 💡 **Ideas** — [GitHub Discussions](https://github.com/adhnan-e/fluttermind/discussions)
 - 🌐 **Instructables** — Full step-by-step build guide _(coming in Phase 1)_
 - 📰 **Hackaday** — Project page _(coming in Phase 2)_
 

@@ -62,7 +62,7 @@ You do not need to write code to make a meaningful contribution. Here are all th
 
 ### Check existing issues first
 
-Before opening a new issue or starting work on a feature, search the [existing issues](https://github.com/yourusername/fluttermind/issues) and [discussions](https://github.com/yourusername/fluttermind/discussions). Someone may already be working on it.
+Before opening a new issue or starting work on a feature, search the [existing issues](https://github.com/adhnan-e/fluttermind/issues) and [discussions](https://github.com/adhnan-e/fluttermind/discussions). Someone may already be working on it.
 
 ### For large changes — discuss first
 
@@ -168,7 +168,7 @@ fluttermind/
 
 ### Reporting a Bug
 
-1. Go to [Issues → New Issue](https://github.com/yourusername/fluttermind/issues/new)
+1. Go to [Issues → New Issue](https://github.com/adhnan-e/fluttermind/issues/new)
 2. Choose the **Bug Report** template
 3. Fill in all sections — especially:
    - Your phone model and Android version
@@ -188,7 +188,7 @@ flutter logs
 
 ### Suggesting a Feature
 
-1. Go to [Discussions → Ideas](https://github.com/yourusername/fluttermind/discussions)
+1. Go to [Discussions → Ideas](https://github.com/adhnan-e/fluttermind/discussions)
 2. Describe the feature and **why it belongs in FlutterMind**
 3. If the discussion gets positive response, it becomes a tracked issue
 
@@ -406,7 +406,7 @@ Before marking your PR as ready for review, confirm:
 
 ## Good First Issues
 
-New to FlutterMind? Look for issues tagged [`good first issue`](https://github.com/yourusername/fluttermind/issues?q=label%3A%22good+first+issue%22) on GitHub. These are small, well-defined tasks that are a great way to get familiar with the codebase.
+New to FlutterMind? Look for issues tagged [`good first issue`](https://github.com/adhnan-e/fluttermind/issues?q=label%3A%22good+first+issue%22) on GitHub. These are small, well-defined tasks that are a great way to get familiar with the codebase.
 
 Current good first issues include:
 
