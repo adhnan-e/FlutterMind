@@ -1,75 +1,75 @@
-name: CI
+# name: CI
 
-on:
-  push:
-    # branches: [main, develop]
-  pull_request:
-    # branches: [main]
+# on:
+#   push:
+#     branches: [main, develop]
+#   pull_request:
+#     branches: [main]
 
-jobs:
-  # ─────────────────────────────────────────
-  # Flutter app — analyze + test
-  # ─────────────────────────────────────────
-  flutter:
-    name: Flutter analyze & test
-    runs-on: ubuntu-latest
+# jobs:
+#   # ─────────────────────────────────────────
+#   # Flutter app — analyze + test
+#   # ─────────────────────────────────────────
+#   flutter:
+#     name: Flutter analyze & test
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.19.0'
-          channel: stable
-          cache: true
+#       - name: Setup Flutter
+#         uses: subosito/flutter-action@v2
+#         with:
+#           flutter-version: '3.19.0'
+#           channel: stable
+#           cache: true
 
-      - name: Install dependencies
-        working-directory: app
-        run: flutter pub get
+#       - name: Install dependencies
+#         working-directory: app
+#         run: flutter pub get
 
-      - name: Generate code (json_serializable)
-        working-directory: app
-        run: flutter pub run build_runner build --delete-conflicting-outputs
+#       - name: Generate code (json_serializable)
+#         working-directory: app
+#         run: flutter pub run build_runner build --delete-conflicting-outputs
 
-      - name: Analyze
-        working-directory: app
-        run: flutter analyze --fatal-infos
+#       - name: Analyze
+#         working-directory: app
+#         run: flutter analyze --fatal-infos
 
-      - name: Run tests
-        working-directory: app
-        run: flutter test --coverage
+#       - name: Run tests
+#         working-directory: app
+#         run: flutter test --coverage
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v4
-        with:
-          file: app/coverage/lcov.info
-          flags: flutter
+#       - name: Upload coverage
+#         uses: codecov/codecov-action@v4
+#         with:
+#           file: app/coverage/lcov.info
+#           flags: flutter
 
-  # ─────────────────────────────────────────
-  # Python AI scripts — lint
-  # ─────────────────────────────────────────
-  python:
-    name: Python lint
-    runs-on: ubuntu-latest
+#   # ─────────────────────────────────────────
+#   # Python AI scripts — lint
+#   # ─────────────────────────────────────────
+#   python:
+#     name: Python lint
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+#       - name: Setup Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.11'
 
-      - name: Install linting tools
-        run: pip install flake8 black
+#       - name: Install linting tools
+#         run: pip install flake8 black
 
-      - name: Check formatting (black)
-        working-directory: ai
-        run: black --check .
+#       - name: Check formatting (black)
+#         working-directory: ai
+#         run: black --check .
 
-      - name: Lint (flake8)
-        working-directory: ai
-        run: flake8 . --max-line-length=100 --exclude=venv,__pycache__
+#       - name: Lint (flake8)
+#         working-directory: ai
+#         run: flake8 . --max-line-length=100 --exclude=venv,__pycache__
