@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-blue.svg)](https://flutter.dev)
 [![Arduino](https://img.shields.io/badge/Arduino-Nano-teal.svg)](https://arduino.cc)
-[![Gemma](https://img.shields.io/badge/Gemma_4-E4B-orange.svg)](https://ai.google.dev/gemma)
+[![Gemma](https://img.shields.io/badge/Gemma_4-E2B-orange.svg)](https://ai.google.dev/gemma)
 [![Stars](https://img.shields.io/github/stars/adhnan-e/fluttermind?style=social)](https://github.com/adhnan-e/fluttermind)
 
 ---
@@ -18,7 +18,7 @@
 
 FlutterMind is a fully open-source robotic skeleton controlled by a Flutter app running on your Android phone. The phone connects to an Arduino motor controller via a USB-C OTG cable, which drives 22 servo motors across a 3D printed humanoid upper body.
 
-The phone is not just a remote — it **is** the brain. Gemma 4 E4B runs directly on the phone's processor. No cloud. No Raspberry Pi. No laptop.
+The phone is not just a remote — it **is** the brain. Gemma 4 E2B runs directly on the phone's processor. No cloud. No Raspberry Pi. No laptop.
 
 ```
 Your voice
@@ -27,7 +27,7 @@ Your voice
 Whisper STT (on phone)
     │
     ▼
-Gemma 4 E4B LLM (on phone, offline)
+Gemma 4 E2B LLM (on phone, offline)
     │
     ▼
 Flutter app → USB-C OTG cable
@@ -159,7 +159,7 @@ STL files are in the `/stl` folder of this repo. See [PRINTING.md](docs/PRINTING
 - Android phone (Android 10+, 4GB+ RAM recommended)
 - Flutter 3.x / Dart 3.x
 - Arduino IDE 2.x
-- Gemma 4 E4B model (downloaded on-device)
+- Gemma 4 E2B model (downloaded on-device)
 
 ### Project structure
 
@@ -237,7 +237,7 @@ The app will detect your Arduino automatically when connected via USB-C OTG.
 
 ### 3. Set up Gemma 4 on-device
 
-The app uses [Google AI Edge](https://ai.google.dev/edge) to run Gemma 4 E4B directly on the phone. On first launch, it will prompt you to download the model (~2.5GB). Requires Wi-Fi for the initial download only — after that, everything runs offline.
+The app uses Google's [LiteRT (formerly TensorFlow Lite) LLM Inference SDK](https://ai.google.dev/edge/litert) to run **Gemma 4 E2B** directly on the phone. On first launch, it will prompt you to download the pre-compiled [gemma-4-E2B-it.litertlm](https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm) model file (~2.5GB). Requires Wi-Fi for the initial download only — after that, everything runs offline.
 
 ### 4. Connect and test
 
@@ -265,7 +265,7 @@ The app uses [Google AI Edge](https://ai.google.dev/edge) to run Gemma 4 E4B dir
 
 ## AI Training (Optional)
 
-The default model is Gemma 4 E4B with a robot-specific system prompt — this works well out of the box.
+The default model is Gemma 4 E2B with a robot-specific system prompt — this works well out of the box.
 
 For better performance on your specific robot and environment, you can fine-tune using the [Indoor Robot Navigation Dataset (IRND)](https://www.kaggle.com/datasets/narayananpp/indoor-robot-navigation-dataset-irnd).
 

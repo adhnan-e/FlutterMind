@@ -1,12 +1,12 @@
 # AI Training Guide 🤖🧠
 
-How to fine-tune Gemma 4 E4B for FlutterMind — from raw dataset to a deployed model running on your phone.
+How to fine-tune Gemma 4 E2B for FlutterMind — from raw dataset to a deployed model running on your phone.
 
 ---
 
 ## Overview
 
-FlutterMind uses **Gemma 4 E4B** as its on-device brain. Out of the box, Gemma 4 works well for basic voice control via its system prompt alone. Fine-tuning makes it significantly better at:
+FlutterMind uses **Gemma 4 E2B** as its on-device brain. Out of the box, Gemma 4 works well for basic voice control via its system prompt alone. Fine-tuning makes it significantly better at:
 
 - Understanding robot-specific commands
 - Making safe navigation decisions from sensor data
@@ -21,7 +21,7 @@ Fine-tuning is **optional but recommended** after Phase 2 of your build.
 
 | Tool | Purpose |
 |---|---|
-| **Gemma 4 E4B** | Base model (4B active params, edge-optimised) |
+| **Gemma 4 E2B** | Base model (2B active params, edge-optimised) |
 | **Unsloth** | Fast fine-tuning with 4-bit quantisation |
 | **LoRA** | Efficient adapter training (trains only ~1% of weights) |
 | **Google Colab** | Free T4 GPU (16GB) — sufficient for this setup |
@@ -176,7 +176,7 @@ files.upload()   # upload robot_train.jsonl and robot_val.jsonl
 from unsloth import FastLanguageModel
 
 model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name     = "google/gemma-4-e4b-it",
+    model_name     = "google/gemma-4-e2b-it",
     max_seq_length = 2048,
     load_in_4bit   = True,
     dtype          = None,
@@ -302,22 +302,26 @@ ollama create fluttermind -f ~/models/Modelfile
 ollama run fluttermind "Front distance is 15cm. What do I do?"
 ```
 
-### Option B — On Android phone (on-device via MediaPipe / LiteRT)
+### Option B — On Android phone (on-device via LiteRT / MediaPipe)
 
-For full on-device inference on the phone itself (no Jetson needed):
+For full on-device offline inference on the phone, the Flutter app uses Google's LiteRT SDK. 
+
+- **Base Model (Ready to use)**: You can download the pre-compiled `gemma-4-E2B-it.litertlm` model file directly from the [litert-community/gemma-4-E2B-it-litert-lm](https://huggingface.co/litert-community/gemma-4-E2B-it-litert-lm) repository.
+- **Custom Fine-tuned Model**: If you fine-tune the model with your own dataset, you can convert the merged LoRA checkpoint to the LiteRT model format using `ai-edge-torch`:
 
 ```bash
-# Convert GGUF to LiteRT format for Android
+# Convert your custom PyTorch model/LoRA checkpoint to LiteRT
 pip install ai-edge-torch
 
 python -c "
 import ai_edge_torch
-# Convert Gemma 4 LoRA weights to TFLite format
-# See: https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference
+# Load and convert your merged model weights to the .litertlm format
+# For detailed instructions, see:
+# https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference/android
 "
 ```
 
-> Full MediaPipe LLM inference setup is documented at [ai.google.dev/edge](https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference/android).
+> Full LiteRT LLM inference setup is documented at [ai.google.dev/edge/litert](https://ai.google.dev/edge/litert).
 
 ---
 

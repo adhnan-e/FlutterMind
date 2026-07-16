@@ -9,6 +9,7 @@ Everyone who has contributed to FlutterMind — code, hardware, docs, translatio
 | Name | Role | GitHub |
 |---|---|---|
 | Adhnan | Creator, Flutter dev, architect | [@adhnan-e](https://github.com/adhnan-e) |
+| Sithara | Mechanical Engineer, Robotics | [@sithara-kt](https://github.com/sithara-kt) |
 
 ---
 
