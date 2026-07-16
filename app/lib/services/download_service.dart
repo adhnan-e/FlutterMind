@@ -158,4 +158,11 @@ class DownloadService extends ChangeNotifier {
       print("[DownloadService] $msg");
     }
   }
+
+  @override
+  void dispose() {
+    cancelDownload();
+    _dio.close();
+    super.dispose();
+  }
 }
